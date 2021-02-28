@@ -1,6 +1,6 @@
 ## About The Project
 
-![Code Quiz Screen Shot](/images/code-quiz.jpg)
+![Code Quiz Screen Shot](/assets/images/code-quiz-screenshot.jpg)
 
 >[Link to the website](https://kmcpherson49.github.io/code-quiz/)
 
