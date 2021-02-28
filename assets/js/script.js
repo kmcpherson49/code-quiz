@@ -26,7 +26,7 @@ var buttonEL
 //variable for questions and answers and correctness
 
 //card container w/ start menu when clicked use .empty to remove, then use jquery to create the next question
-
+var countdown = 75;
 var timer = document.getElementById('time');
 var main = document.getElementById('main');
 var quizbtn = document.getElementById('start');
@@ -61,12 +61,41 @@ var questions = [
 answers=[ [0].correctAnswer, [1].correctAnswer, [2].correctAnswer, [3].correctAnswer, [4].correctAnswer];
 for (var i = 0; i < answers; i++) {
   if (questions === answers[i])
-  correct = true;
+  var correct = true;
 }
 if (correct) {
   alert("Correct");
 }
-else {
-  alert("Incorrect")
-  countdown-10;
-}
+// else {
+//   alert("Incorrect")
+//   countdown-10;
+// }
+console.log(answers);
+
+
+function time() {
+  
+  var timeInterval = setInterval(function() {
+    if (countdown > 1) {
+      timer.textContent = countdown + ' seconds remaining';
+      countdown--;
+    }
+    else if (countdown === 1) {
+      timer.textContent = countdown + ' seconds remaining';
+      countdown--;
+    }
+    else {
+      timer.textContent = "";
+      clearInterval(timeInterval);
+      timer.textContent = 'Times up!';
+    }
+  }, 1000);
+};
+
+// function beginQuiz () {
+//   prompt(questions);
+// }
+// console.log('line 98' + answers);
+
+$(quizbtn).on("click", time() );
+start.addEventListener("click", questions);
