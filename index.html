@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="d-flex align-items-end flex-colium bd-highlight mb-3">
+        <a href="">View High Scores</a>
+      </div>
+      <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+        <p id="time"> Timer: <span id="timer"></span></p>
+      </div>
+    </header>
+
+    <main class="quiz-body card jusitfy-content-center col-12">
+      <div class="coding-quiz-challenge card-body mx-auto col-12-sm col-8-md col-6-lg col-3-xl">
+        <div id="quiz-card" class="justify-content-center">
+          <h2 class="text-center text-white bg-info">Are you up for the challenge?</h2>
+          <p class="text-center">
+            Answer the following questions about coding within the time limit. Remember that every incorrect answer will dock 10 seconds off your time!
+          </p>
+          <div class="text-center mx-auto justify-content-center col-6">
+            <button type="button" id="start" class="btn text-white bg-info" button onclick="docutment.getElementById(quiz-card).empty">Start Quiz</button>
+          </div>
+        </div>
+      </div>
+      <!-- use start button here with blurb
+      <button id="submit">Submit Quiz</button>
+      <div id="results"></div> -->
+    </main>
+    <script src="./assets/js/script.js"></script>
+    <footer>&copy;2020 by KLM</footer>
+  </body>
+</html>
