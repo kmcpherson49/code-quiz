@@ -27,9 +27,11 @@ var buttonEL
 
 //card container w/ start menu when clicked use .empty to remove, then use jquery to create the next question
 var countdown = 75;
+var questionIndex = 0;
 var timer = document.getElementById('time');
 var main = document.getElementById('main');
 var quizbtn = document.getElementById('start');
+var questionBox = document.getElementById('questionBox');
 var questions = [
   {
     question: "Commonly used data types DO Not Include:",
@@ -58,19 +60,39 @@ var questions = [
     },
 ];
 
-answers=[ [0].correctAnswer, [1].correctAnswer, [2].correctAnswer, [3].correctAnswer, [4].correctAnswer];
-for (var i = 0; i < answers; i++) {
-  if (questions === answers[i])
-  var correct = true;
-}
-if (correct) {
-  alert("Correct");
-}
-// else {
-//   alert("Incorrect")
-//   countdown-10;
+function generateQuestion() {
+  var currentQuestion = questions[questionIndex]
+  var questionTitle = document.createElement('h2')
+  questionTitle.textContent = questions.question;
+
+  currentQuestion.answers.forEach(function(question, index) {
+    var questionButton = document.createElement('button')
+    questionButton.setAttribute('class', 'qButton')
+    questionButton.setAttribute('value', question)
+    questionButton.textContent = index + 1 + ': ' + question
+    //questionButton.onclick = nextQuestion;
+    questionBox.appendChild(questionTitle, questionButton);
+  })
+};
+
+// function nextQuestion( {
+//   //if there are still questions go to index and run generate or end
+//   currentQuestion++
+// })
+
+// answers=[ questions.answers[1], [0].correctAnswer, [1].correctAnswer, [2].correctAnswer, [3].correctAnswer, [4].correctAnswer];
+// for (var i = 0; i < answers; i++) {
+//   if (questions === answers[i])
+//   var correct = true;
 // }
-console.log(answers);
+// if (correct) {
+//   alert("Correct");
+// }
+// // else {
+// //   alert("Incorrect")
+// //   countdown-10;
+// // }
+// console.log(answers);
 
 
 function time() {
@@ -92,10 +114,16 @@ function time() {
   }, 1000);
 };
 
-// function beginQuiz () {
-//   prompt(questions);
-// }
+function beginQuiz () {
+  generateQuestion();
+  time();
+  
+};
+
+function startClick () {
+  main.setAttribute('class', 'hide')
+};
 // console.log('line 98' + answers);
 
-$(quizbtn).on("click", time() );
-start.addEventListener("click", questions);
+//$(quizbtn).on("click", time() );
+start.addEventListener("click", beginQuiz);
